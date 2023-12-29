@@ -33,7 +33,7 @@ const EditPost = () => {
   const [categories, setCategories] = useState(null);
   const [title, setTitle] = useState("");
   const [tags, setTags] = useState(null);
-  const [postSlug, setPostSlug] = useState(slug);
+  const [postSlug] = useState(slug);
   const [caption, setCaption] = useState("");
 
   const { data, isLoading, isError } = useQuery({
