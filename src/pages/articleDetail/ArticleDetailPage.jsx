@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import BreadCrumbs from "../../components/BreadCrumbs";
+// import BreadCrumbs from "../../components/BreadCrumbs";
 import CommentsContainer from "../../components/comments/CommentsContainer";
 import MainLayout from "../../components/MainLayout";
 import SocialShareButtons from "../../components/SocialShareButtons";
@@ -25,12 +25,12 @@ const ArticleDetailPage = () => {
         queryFn: () => getSinglePost({ slug }),
         queryKey: ["blog", slug],
         onSuccess: (data) => {
-            setBreadCrumbsData([
-                { name: "Home", link: "/" },
-                { name: "Blog", link: "/blog" },
-                { name: "Article title", link: `/blog/${data.slug}` },
-            ]);
-            setBody(parseJsonToHtml(data?.body));
+            // setBreadCrumbsData([
+            //     { name: "Home", link: "/" },
+            //     { name: "Blog", link: "/blog" },
+            //     { name: "Article title", link: `/blog/${data.slug}` },
+            // ]);
+            // setBody(parseJsonToHtml(data?.body));
         },
     });
 
@@ -48,7 +48,7 @@ const ArticleDetailPage = () => {
             ) : (
                 <section className="container mx-auto max-w-5xl flex flex-col px-5 py-5 lg:flex-row lg:gap-x-5 lg:items-start">
                     <article className="flex-1">
-                        <BreadCrumbs data={breadCrumbsData} />
+                        {/* <BreadCrumbs data={breadCrumbsData} /> */}
                         <img
                             className="rounded-xl w-full"
                             src={
