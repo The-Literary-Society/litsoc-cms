@@ -2,7 +2,7 @@
   "name": "litsoc-cms-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://litsoc-vssut.onrender.com/",
+  "proxy": "https://litsoc-vssut.onrender.com",
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "@tanstack/react-query": "^5.15.0",
