@@ -14,6 +14,8 @@ import Admin from './pages/admin/screens/Admin';
 import Comments from './pages/admin/screens/comments/Comments';
 import ManagePosts from "./pages/admin/screens/posts/ManagePosts";
 import EditPost from "./pages/admin/screens/posts/EditPost";
+import News from './pages/news/News';
+import TeamPage from './pages/team/TeamPage';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route index path="/" element={<HomePage />} />
           <Route path="/aboutus" element={<AboutPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/team" element={<TeamPage />} />
           <Route path="/blog/:slug" element={<ArticleDetailPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
