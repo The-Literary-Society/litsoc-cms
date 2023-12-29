@@ -38,7 +38,7 @@ const sectionsData = [
 const AboutPage = () => {
   return (
     <MainLayout>
-      <div className='mx-10 my-9'>
+      <div className='px-10 py-9 bg-amber-600 bg-opacity-5'>
         {sectionsData.map((section, index) => (
           <div
             key={index}
@@ -52,10 +52,10 @@ const AboutPage = () => {
               className='w-50 h-50 md:h-40 lg:w-80 lg:h-56 object-cover rounded-[7px] mr-6 mb-5 md:mb-0 md:mr-0 md:ml-6'
             />
             <div>
-              <h1 className='text-2xl lg:text-3xl font-bold text-center text-primary italic'>
+              <h1 className='text-2xl lg:text-3xl font-bold text-center text-amber-700 italic font-roboto'>
                 {section.title}
               </h1>
-              <p className='mt-4 text-sm max-w-md md:max-w-sm lg:max-w-2xl md:text-center lg:text-lg'>{section.content}</p>
+              <p className='mt-4 text-sm max-w-md md:max-w-sm lg:max-w-2xl md:text-center lg:text-lg text-amber-900 font-roboto'>{section.content}</p>
             </div>
           </div>
         ))}
