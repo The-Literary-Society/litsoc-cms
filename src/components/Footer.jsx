@@ -22,13 +22,13 @@ const Footer = () => {
           <h3 className='text-[#ffffff] font-bold text-lg md:text-lg'>About Us</h3>
           <ul className='text-[#fff2e4] md:text-base'>
             <li>
-              <a href='#'>The VerSSe</a>
+              <a href='/'>The VerSSe</a>
             </li>
             <li>
-              <a href='#'>The ViSSionary</a>
+              <a href='/'>The ViSSionary</a>
             </li>
             <li>
-              <a href='#'>Collaborations</a>
+              <a href='/'>Collaborations</a>
             </li>
           </ul>
         </div>
@@ -37,13 +37,13 @@ const Footer = () => {
           <h3 className='text-[#ffffff] font-bold text-lg md:text-lg'>Blogs and Articles</h3>
           <ul className='text-[#fff2e4] md:text-base'>
             <li>
-              <a href='#'>Recent Issues</a>
+              <a href='/'>Recent Issues</a>
             </li>
             <li>
-              <a href='#'>Club Series</a>
+              <a href='/'>Club Series</a>
             </li>
             <li>
-              <a href='#'>Popular</a>
+              <a href='/'>Popular</a>
             </li>
           </ul>
         </div>
@@ -52,13 +52,13 @@ const Footer = () => {
           <h3 className='text-[#ffffff] font-bold text-lg md:text-lg'>News</h3>
           <ul className='text-[#fff2e4] md:text-base'>
             <li>
-              <a href='#'>Events</a>
+              <a href='/'>Events</a>
             </li>
             <li>
-              <a href='#'>Official</a>
+              <a href='/'>Official</a>
             </li>
             <li>
-              <a href='#'>Trending</a>
+              <a href='/'>Trending</a>
             </li>
           </ul>
         </div>
@@ -67,10 +67,10 @@ const Footer = () => {
           <h3 className='text-[#ffffff] font-bold text-lg md:text-lg'>Our Team</h3>
           <ul className='text-[#fff2e4] md:text-base'>
             <li>
-              <a href='#'>Current</a>
+              <a href='/'>Current</a>
             </li>
             <li>
-              <a href='#'>Alumini</a>
+              <a href='/'>Alumini</a>
             </li>
           </ul>
         </div>
@@ -79,17 +79,17 @@ const Footer = () => {
           <p className='text-sm text-[#fff2e4] text-center mt-4 md:text-left md:text-base lg:w-[300px]'>The creative summit and media body of VSSUT</p>
           <ul className='flex justify-center items-center mt-5 space-x-4 text-[#fff2e4] md:justify-start'>
             <li>
-              <a href='#'>
+              <a href='https://www.instagram.com/'>
                 <FaInstagram className='w-6 h-auto' />
               </a>
             </li>
             <li>
-              <a href='#'>
+              <a href='https://twitter.com/'>
                 <FaTwitter className='w-6 h-auto' />
               </a>
             </li>
             <li>
-              <a href='#'>
+              <a href='https://www.linkedin.com/'>
                 <FaLinkedin className='w-6 h-auto' />
               </a>
             </li>
