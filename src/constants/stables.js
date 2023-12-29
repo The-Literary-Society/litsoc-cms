@@ -1,4 +1,4 @@
-const UPLOAD_FOLDER_BASE_URL = "https://litsoc-vssut.onrender.com/uploads/";
+const UPLOAD_FOLDER_BASE_URL = "https://litsocvssut.onrender.com/uploads/";
 
 const stables = { UPLOAD_FOLDER_BASE_URL };
 
