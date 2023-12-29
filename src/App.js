@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import HomePage from './pages/home/HomePage';
-import AboutPage from './pages/AboutPage';
+import AboutPage from './pages/about/AboutPage';
 import BlogPage from './pages/BlogPage';
 import ArticleDetailPage from './pages/articleDetail/ArticleDetailPage';
 import RegisterPage from './pages/register/RegisterPage';
@@ -21,7 +21,7 @@ function App() {
       <div className='App font-opensans'>
         <Routes>
           <Route index path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
+          <Route path="/aboutus" element={<AboutPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<ArticleDetailPage />} />
           <Route path="/register" element={<RegisterPage />} />

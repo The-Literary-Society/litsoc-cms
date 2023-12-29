@@ -204,12 +204,11 @@ const ManagePosts = () => {
               </table>
               {!isLoading && (
                 <Pagination
-                  onPageChange={(page) => setCurrentPage(page)}
-                  currentPage={currentPage}
-                  totalPageCount={JSON.parse(
-                    postsData?.headers?.["x-totalpagecount"]
-                  )}
-                />
+                onPageChange={(page) => setCurrentPage(page)}
+                currentPage={currentPage}
+                totalPageCount={JSON.parse(postsData?.headers?.["x-totalpagecount"] || "0")}
+              />
+              
               )}
             </div>
           </div>
