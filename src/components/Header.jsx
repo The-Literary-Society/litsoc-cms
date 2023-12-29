@@ -3,7 +3,9 @@ import { images } from '../constants/index';
 import { RiMenu3Fill } from "react-icons/ri";
 import { MdClose } from "react-icons/md";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from "../store/actions/user";
 
 const navItemInfo = [
   { name: "Home", type: "link", href: "/" },
@@ -48,9 +50,8 @@ const NavItem = ({ item }) => {
             <IoMdArrowDropdown />
           </button>
           <div
-            className={`${
-              dropdown ? "block" : "hidden"
-            }  lg:hidden transition-all duration-800 lg:absolute lg:bottom-0 lg:right-0 lg:transform lg:translate-y-full lg:group-hover:block w-max lg:bg-gray-100 bg-amber-800 rounded-md`}
+            className={`${dropdown ? "block" : "hidden"
+              }  lg:hidden transition-all duration-800 lg:absolute lg:bottom-0 lg:right-0 lg:transform lg:translate-y-full lg:group-hover:block w-max lg:bg-gray-100 bg-amber-800 rounded-md`}
           >
             <ul className="bg-dark-soft lg:bg-transparent text-center flex flex-col shadow-lg rounded-lg overflow-hidden">
               {item.items.map((page, index) => (
@@ -72,18 +73,26 @@ const NavItem = ({ item }) => {
 
 
 const Header = () => {
+  const navigate = useNavigate();
   const [navIsVisible, setNavIsVisible] = useState(false);
+  const userState = useSelector((state) => state.user);
+  const [profileDropdown, setProfileDropdown] = useState(false);
+  const dispatch = useDispatch();
 
   const navVisibilityHandler = () => {
     setNavIsVisible((curState) => !curState);
   };
 
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
+
   return (
     <section className='sticky top-0 left-0 right-0 z-50 bg-white'>
       <header className='container px-4 lg:px-0 mx-auto flex justify-between py-4 items-center'>
-        <div>
+        <Link to='/'>
           <img src={images.Logo} alt="logo" width={120} />
-        </div>
+        </Link>
         <div className='z-50'>
           {!navIsVisible && (
             <RiMenu3Fill className='w-6 h-6 lg:hidden' onClick={navVisibilityHandler} />
@@ -96,13 +105,65 @@ const Header = () => {
           className={`${navIsVisible ? "right-0" : "-right-full"
             } transition-all duration-400 bg-amber-900 lg:bg-transparent z-[49] flex flex-col w-full lg:w-auto justify-center lg:justify-end lg:flex-row fixed top-0 bottom-0 lg:static gap-x-4 items-center mt-[100px] lg:mt-0 `}
         >
-          <ul className="text-white items-center gap-y-6 lg:text-dark-soft flex flex-col lg:flex-row gap-x-1 font-semibold lg:flex lg:text-black ">
+          <ul className="text-white items-center gap-y-6 lg:text-amber-800 flex flex-col lg:flex-row gap-x-1 font-semibold lg:flex lg:text-black ">
             {navItemInfo.map((item) => (
               <NavItem key={item.name} item={item} />
             ))}
           </ul>
+          {userState.userInfo ? (
+            <div className="text-white items-center gap-y-6 lg:text-amber-800 flex flex-col lg:flex-row gap-x-1 font-semibold lg:flex lg:text-black mt-5 lg:mt-0 ">
+              <div className='relative group'>
+                <div className="flex flex-col items-center">
+                  <button
+                    className="flex gap-x-1 items-center className='mt-5 lg:mt-0 border-2 lg:border-amber-700 border-amber-100 py-1 px-5 rounded-full lg:text-amber-700 text-amber-100 font-semibold hover:bg-amber-100 lg:hover:bg-amber-700 hover:text-black lg:hover:text-white transition-all duration-300'"
+                    onClick={() => setProfileDropdown(!profileDropdown)}
+                  >
+                    <span>Account</span>
+                    <IoMdArrowDropdown />
+                  </button>
+                  <div
+                    className={`${profileDropdown ? "block" : "hidden"
+                      }  lg:hidden transition-all duration-800 lg:absolute lg:bottom-0 lg:right-0 lg:transform lg:translate-y-full lg:group-hover:block w-max lg:bg-gray-100 bg-amber-800`}
+                  >
+                    <ul className="bg-dark-soft lg:bg-transparent text-center flex flex-col shadow-lg overflow-hidden">
+                      {userState?.userInfo?.admin && (
+                        <button
+                        type='button'
+                        onClick={() => navigate("/admin")}
+                        className=" hover:bg-amber-700 hover:text-white text-sm px-5 py-2 text-white lg:text-black"
+                      >
+                        Dashboard
+                      </button>
+                      )}
+                      <button
+                        type='button'
+                        onClick={() => navigate("/profile")}
+                        className=" hover:bg-amber-700 hover:text-white text-sm px-5 py-2 text-white lg:text-black"
+                      >
+                        Profile Page
+                      </button>
+                      <button
+                        type='button'
+                        onClick={logoutHandler}
+                        className=" hover:bg-amber-700 hover:text-white text-sm px-5 py-2 text-white lg:text-black"
+                      >
+                        Logout
+                      </button>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-          <button className='mt-5 lg:mt-0 border-2 lg:border-amber-700 border-amber-100 py-1 px-5 rounded-full lg:text-amber-700 text-amber-100 font-semibold hover:bg-amber-100 lg:hover:bg-amber-700 hover:text-black lg:hover:text-white transition-all duration-300'>Sign In</button>
+            </div>
+          ) : (
+            <button
+              onClick={() => navigate("/login")}
+              className='mt-5 lg:mt-0 border-2 lg:border-amber-700 border-amber-100 py-1 px-5 rounded-full lg:text-amber-700 text-amber-100 font-semibold hover:bg-amber-100 lg:hover:bg-amber-700 hover:text-black lg:hover:text-white transition-all duration-300'
+            >
+              Sign In
+            </button>
+          )}
+
         </div>
       </header>
     </section>
